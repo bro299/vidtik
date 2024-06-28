@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Video Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TikTok Video Downloader</h1>
+    <form id="downloadForm">
+        <input type="text" id="videoUrl" placeholder="Enter TikTok video URL" required>
+        <button type="button" id="pasteButton">Paste</button>
+        <button type="submit">Download</button>
+    </form>
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('pasteButton').addEventListener('click', function() {
+            navigator.clipboard.readText()
+                .then(text => document.getElementById('videoUrl').value = text)
+                .catch(err => console.error('Failed to read clipboard contents: ', err));
+        });
+    </script>
+</body>
+</html>
